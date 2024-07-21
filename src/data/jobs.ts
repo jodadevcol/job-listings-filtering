@@ -7,7 +7,7 @@ export const JOBS_LISTINGS: Array<Jobs> = [
     company: {
       id: "photosnap",
       name: "Photosnap",
-      img: "/img/photosnap.png"
+      img: "photosnap.png"
     },
     featured: true,
     releaseDate: new Date(2024, 7, 17),
@@ -23,7 +23,7 @@ export const JOBS_LISTINGS: Array<Jobs> = [
     company: {
       id: "manage",
       name: "manage",
-      img: "/img/manage.png"
+      img: "manage.png"
     },
     featured: true,
     releaseDate: new Date(2024, 7, 17),
@@ -35,114 +35,130 @@ export const JOBS_LISTINGS: Array<Jobs> = [
   },
   {
     id: "3c163930-415f-437c-b575-c1ffa4eec5f7",
-    role: "",
+    role: "Junior Front End Developer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "Account",
+      name: "account",
+      img: "account.png"
     },
     featured: false,
-    releaseDate: new Date,
-    jobtype: "Contract",
-    location: "",
+    releaseDate: new Date(2024, 6, 20),
+    jobtype: "Part Time",
+    location: "USA Only",
     skills: [
-      ""
+      "FrontEnd", "Junior", "JavaScript", "React", "Sass"
     ]
   },
   {
     id: "67507fa8-2bf1-4a84-abfc-111202020b6d",
-    role: "",
+    role: "Junior Front End Developer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "MyHome",
+      name: "myhome",
+      img: "myhome.png"
     },
     featured: false,
-    releaseDate: new Date,
+    releaseDate: new Date(2024, 6, 20),
     jobtype: "Contract",
-    location: "",
+    location: "USA Only",
     skills: [
-      ""
+      "FrontEnd", "Junior", "CSS", "JavaScript"
     ]
   },
   {
     id: "d31c09c9-4dd0-41f9-83ac-f7bded11c3b6",
-    role: "",
+    role: "Sofware Engineer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "loop-studios",
+      name: "Loop Studios",
+      img: "loop-studios.png"
     },
     featured: false,
-    releaseDate: new Date,
-    jobtype: "Contract",
-    location: "",
+    releaseDate: new Date(2024, 6, 30),
+    jobtype: "Full Time",
+    location: "Worldwide",
     skills: [
-      ""
+      "FullStack", "Midweight", "JavaScript", "Sass", "Ruby"
     ]
   },
   {
     id: "8b2d2ad5-1604-48d9-86e6-14a610cdc845",
-    role: "",
+    role: "Junior BackEnd Developer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "facelt",
+      name: "facelt",
+      img: "facelt.png"
     },
     featured: false,
     releaseDate: new Date,
     jobtype: "Contract",
-    location: "",
+    location: "UK Only",
     skills: [
-      ""
+      "BackEnd", "Junior", "Ruby", "RoR"
     ]
   },
   {
     id: "6a560312-9ec0-4009-a797-f42184a6d50b",
-    role: "",
+    role: "Junior Developer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "shortly",
+      name: "shortly",
+      img: "shortly.png"
     },
     featured: false,
-    releaseDate: new Date,
+    releaseDate: new Date(2024, 6, 28),
     jobtype: "Contract",
-    location: "",
+    location: "Full Time",
     skills: [
-      ""
+      "FrontEnd", "Junior", "JavaScript", "Sass", "HTML"
     ]
   },
   {
     id: "6680ec6d-7d7d-44d1-a348-9498c7d7da18",
-    role: "",
+    role: "Junior Front End Developer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "insure",
+      name: "insure",
+      img: "insure.png"
     },
     featured: false,
-    releaseDate: new Date,
+    releaseDate: new Date(2024, 6, 29),
     jobtype: "Contract",
-    location: "",
+    location: "Full Time",
     skills: [
-      ""
+      "FrontEnd", "Junior", "JavaScript", "Vue", "Sass"
     ]
   },
   {
     id: "2760758f-4eba-4f57-a920-06ae42c27356",
-    role: "",
+    role: "FullStack Engineer",
     company: {
-      id: "",
-      name: "",
-      img: ""
+      id: "eyecam-co",
+      name: "Eyecam Co",
+      img: "eyecam-co.png"
     },
     featured: false,
-    releaseDate: new Date,
-    jobtype: "Contract",
-    location: "",
+    releaseDate: new Date(2024, 7, 1),
+    jobtype: "Full Time",
+    location: "Worldwide",
     skills: [
-      ""
+      "FullStack", "Midweight", "JavaScript", "Python", "Django"
+    ]
+  },
+  {
+    id: "2760758f-4eba-4f57-a920-06ae42c27356",
+    role: "Front-End Dev",
+    company: {
+      id: "the-air-filter-company",
+      name: "The Air Filter Company",
+      img: "the-air-filter-company.png"
+    },
+    featured: false,
+    releaseDate: new Date(2024, 6, 30),
+    jobtype: "Part Time",
+    location: "Worldwide",
+    skills: [
+      "FrontEnd", "Junior", "React", "Sass", "JavaScript"
     ]
   },
 ]
