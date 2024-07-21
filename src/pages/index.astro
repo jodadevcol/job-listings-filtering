@@ -1,61 +1,74 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { JOBS_LISTINGS } from '../data/jobs';
+import { PATH_IMG } from '../cons.d';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<section class="max-w-6xl mx-auto py-16 px-5">
-			<div class="flex flex-col gap-6">
-				{
-					JOBS_LISTINGS.map((job) => (
-						<article class="w-full px-8 md:px-10 py-6 md:py-8 bg-white flex gap-x-4 md:gap-x-8 items-center justify-between rounded-md text-gray-700">
-							<header class="flex gap-x-6 justify-start items-center w-full">
-								<div class="flex-shrink-0 max-w-[88px] w-full aspect-square rounded-full bg-gray-400/50">
-										{
-											job.company.img 
-												? (<picture class="w-full"><img class="w-full object-contain" src={job.company.img} alt=""/></picture>)
-												: ''
-										}
-								</div>
+	<section class="max-w-6xl mx-auto py-16 px-5">
+		<div class="min-h-16 mt-16 mb-10 py-5 px-8 bg-white rounded" style="filter: drop-shadow(0 15px 20px rgb(13 113 130 / 0.15));">
+			<ul class="flex gap-3">
+				<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+					<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">No filter</span>
+				</li>
+			</ul>
+		</div>
 
-								<div>
-									<div class="flex gap-x-2 items-center justify-start mb-3">
-										<span class="text-base font-bold capitalize text-[#5CA5A5]">{job.company.name}</span>
-										{
-											job.featured === true 
-												?	<span class="py-1 px-2 text-xs rounded-md font-bold text-white leading-none uppercase bg-[#2B3939]">Featured</span>
-												: ''
-										}
-									</div>
+		<div class="flex flex-col gap-6">
+			{
+				JOBS_LISTINGS.map((job) => (
+					<article class="relative w-full px-8 md:px-10 py-6 md:py-8 bg-white flex gap-x-4 md:gap-x-8 items-center justify-between rounded-md text-gray-700 overflow-hidden">
+						{
+							job.featured === true
+								? (<span class="absolute top-0 bottom-0 left-0 w-2 bg-[#5CA5A5]"></span>)
+								: ''
+						}
+						<header class="flex gap-x-6 justify-start items-center w-full">
+							<div class="flex-shrink-0 max-w-[88px] w-full aspect-square rounded-full bg-gray-400/50">
+								{
+									job.company.img 
+										? (<picture class="w-full"><img class="w-full object-contain" src={`${PATH_IMG}${job.company.img}`} alt=""/></picture>)
+										: ''
+								}
+							</div>
 
-									<div class="mb-2">
-										<spa class="text-lg text-[#2B3939] font-bold">{job.role}</span>
-									</div>
-
-									<div class="flex gap-3 items-center justify-start text-lg leading-none text-gray-400">
-										<span class="text-info">{ job.releaseDate.getFullYear() }</span>
-										<span class="icon-info block w-1 h-1 mb-1 rounded-full bg-current"></span>
-										{/* <span>{ job.releaseDate }</span> */}
-										<span>{ job.location }</span>
-									</div>
-								</div>
-							</header>
-							<footer class="ml-auto">
-								<ul class="flex gap-3">
+							<div>
+								<div class="flex gap-x-2 items-center justify-start mb-3">
+									<span class="text-base font-bold capitalize text-[#5CA5A5]">{job.company.name}</span>
 									{
-										job.skills.map((skill) => (
-											<li class="px-2 py-1 rounded bg-[#5CA5A5]/10">
-												<span class="text-sm font-bold text-[#5CA5A5]">{ skill }</span>
-											</li>
-										))
+										job.featured === true
+											?	<span class="py-1 px-2 text-xs rounded-md font-bold text-white leading-none uppercase bg-[#2B3939] pointer-events-none">Featured</span>
+											: ''
 									}
-								</ul>
-							</footer>
-						</article>
-					))
-				}
-			</div>
-		</section>
-	</main>
+								</div>
+
+								<div class="mb-2">
+									<spa class="text-lg text-[#2B3939] font-bold">{job.role}</span>
+								</div>
+
+								<div class="flex gap-3 items-center justify-start text-lg leading-none text-gray-400">
+									<span class="text-info">{ job.releaseDate.getFullYear() }</span>
+									<span class="icon-info block w-1 h-1 mb-1 rounded-full bg-current"></span>
+									<span>{ job.jobtype }</span>
+									<span class="icon-info block w-1 h-1 mb-1 rounded-full bg-current"></span>
+									<span>{ job.location }</span>
+								</div>
+							</div>
+						</header>
+						<footer class="ml-auto">
+							<ul class="flex gap-3">
+								{
+									job.skills.map((skill) => (
+										<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+											<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ skill }</span>
+										</li>
+									))
+								}
+							</ul>
+						</footer>
+					</article>
+				))
+			}
+		</div>
+	</section>
 </Layout>

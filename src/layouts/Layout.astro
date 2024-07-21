@@ -19,11 +19,20 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-body">
-		<div class="absolute top-0 left-0 right-0 w-full h-40 bg-shape z-0"></div>
+		<div class="absolute top-0 left-0 right-0 w-full h-40 bg-shape z-0" style="background-image: url(/img/effects/mask.svg)"></div>
 
 		<div id="main-content" class="relative z-10">
-			<slot />
+			<main>
+				<slot />
+			</main>
 		</div>
+
+		<footer class="bg-[#264653] px-6 py-5">
+			<div class="attribution text-center text-white">
+				Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class="hover:text-[#2A9D8F] transition"><strong>Frontend Mentor</strong></a>. 
+				Coded by <a href="https://joda.dev" class="hover:text-[#2A9D8F] transition"><strong>joda.dev</strong></a>.
+			</div>
+		</footer>
 	</body>
 </html>
 <style is:global>
@@ -31,7 +40,7 @@ const { title } = Astro.props;
 		--color-body: #effafa;
 		--color-primary: ;
 		--color-secondary: ;
-		--color-shape: #63baba;
+		--color-shape: #5CA5A5;
 	}
 
 	html {
