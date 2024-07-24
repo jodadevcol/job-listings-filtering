@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { JOBS_LISTINGS } from '../data/jobs';
 import { PATH_IMG } from '../cons.d';
+import Photosnap from '../icons/Photosnap.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -26,9 +27,14 @@ import { PATH_IMG } from '../cons.d';
 						<header class="flex gap-x-6 justify-start items-center w-full">
 							<div class="flex-shrink-0 max-w-[88px] w-full aspect-square rounded-full bg-gray-400/50">
 								{
-									job.company.img 
-										? (<picture class="w-full"><img class="w-full object-contain" src={`${PATH_IMG}${job.company.img}`} alt=""/></picture>)
-										: ''
+									job.company.logo === false
+										? (
+											<picture class="w-full">
+												<source srcset={`${PATH_IMG}${job.company.img}`} type="image/webp"/>
+												<img class="w-full object-contain" src={`${PATH_IMG}${job.company.img}`} alt=""/>
+											</picture>
+										)
+										: (<Photosnap></Photosnap>)
 								}
 							</div>
 
@@ -49,7 +55,7 @@ import { PATH_IMG } from '../cons.d';
 								<div class="flex gap-3 items-center justify-start text-lg leading-none text-gray-400">
 									<span class="text-info">{ job.releaseDate.getFullYear() }</span>
 									<span class="icon-info block w-1 h-1 mb-1 rounded-full bg-current"></span>
-									<span>{ job.jobtype }</span>
+									<span>{ job.contract }</span>
 									<span class="icon-info block w-1 h-1 mb-1 rounded-full bg-current"></span>
 									<span>{ job.location }</span>
 								</div>
@@ -57,12 +63,28 @@ import { PATH_IMG } from '../cons.d';
 						</header>
 						<footer class="ml-auto">
 							<ul class="flex gap-3">
+								<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+									<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ job.role }</span>
+								</li>
+
+								<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+									<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ job.level }</span>
+								</li>
 								{
-									job.skills.map((skill) => (
-										<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
-											<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ skill }</span>
-										</li>
-									))
+									job.languages.length > 0 &&
+										job.languages.map((language) => (
+											<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+												<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ language }</span>
+											</li>
+										))
+								}
+								{
+									job.tools.length > 0 &&
+										job.tools.map((tool) => (
+											<li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+												<span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">{ tool }</span>
+											</li>
+										))
 								}
 							</ul>
 						</footer>
