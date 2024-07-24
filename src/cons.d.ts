@@ -1,1 +1,1 @@
-export const PATH_IMG = "/img/";
+export const PATH_IMG = "/img/companies/";
