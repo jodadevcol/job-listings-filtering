@@ -1,0 +1,25 @@
+---
+import type { Languages, Level, Role, Tools } from '../types/jobs'
+
+interface Props {
+  skills: (Languages[] | Level | Role | Tools[])[]
+}
+
+const { skills } = Astro.props
+
+const valueSkills = skills.flat()
+---
+
+
+<ul class="flex gap-3">
+  {
+    valueSkills.length > 0 &&
+      valueSkills.map((skill) => (
+        <li class="group px-2 py-1 rounded bg-[#5CA5A5]/10 cursor-pointer transition hover:bg-[#5CA5A5]">
+          <span class="text-sm font-bold text-[#5CA5A5] transition group-hover:text-white">
+            { skill }
+          </span>
+        </li>
+      ))
+  }
+</ul>
